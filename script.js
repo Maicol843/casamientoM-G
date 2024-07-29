@@ -29,19 +29,25 @@ var countdownFunction = setInterval(function() {
     }
 }, 1000);
 
+// Control de reproducción de música
 document.addEventListener('DOMContentLoaded', function() {
     var music = document.getElementById('background-music');
     
     // Intenta reproducir la música automáticamente
     music.play().catch(function(error) {
         // Si el navegador bloquea la reproducción automática, muestra el botón de reproducción
+        var playButtonContainer = document.createElement('div');
+        playButtonContainer.classList.add('play-button-container');
+        
         var playButton = document.createElement('button');
-        playButton.classList.add('btn', 'btn-primary', 'm-3');
+        playButton.classList.add('btn', 'btn-danger');
         playButton.innerHTML = 'Reproducir música';
         playButton.onclick = function() {
             music.play();
-            playButton.remove();
+            playButtonContainer.remove();
         };
-        document.body.appendChild(playButton);
+
+        playButtonContainer.appendChild(playButton);
+        document.body.appendChild(playButtonContainer);
     });
 });
