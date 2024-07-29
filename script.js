@@ -28,3 +28,20 @@ var countdownFunction = setInterval(function() {
         document.getElementById("countdown").innerHTML = "¡El casamiento ha comenzado!";
     }
 }, 1000);
+
+document.addEventListener('DOMContentLoaded', function() {
+    var music = document.getElementById('background-music');
+    
+    // Intenta reproducir la música automáticamente
+    music.play().catch(function(error) {
+        // Si el navegador bloquea la reproducción automática, muestra el botón de reproducción
+        var playButton = document.createElement('button');
+        playButton.classList.add('btn', 'btn-primary', 'm-3');
+        playButton.innerHTML = 'Reproducir música';
+        playButton.onclick = function() {
+            music.play();
+            playButton.remove();
+        };
+        document.body.appendChild(playButton);
+    });
+});
