@@ -39,15 +39,5 @@ document.addEventListener('DOMContentLoaded', function() {
         var playButtonContainer = document.createElement('div');
         playButtonContainer.classList.add('play-button-container');
         
-        var playButton = document.createElement('button');
-        playButton.classList.add('btn', 'btn-danger');
-        playButton.innerHTML = 'Reproducir música';
-        playButton.onclick = function() {
-            music.play();
-            playButtonContainer.remove();
-        };
-
-        playButtonContainer.appendChild(playButton);
-        document.body.appendChild(playButtonContainer);
     });
 });
